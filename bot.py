@@ -7,13 +7,13 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-# --- AYARLAR ---
-CLIENT_ID = "1537176213678719037"
-CLIENT_SECRET = "_cepqD6WCRm5KI-s5ydlzcFv_vhZi5kn"
-REDIRECT_URI = "https://welloworld.onrender.com/callback"
+# --- ÇEVRESEL DEĞİŞKENLERDEN OKUMA (GÜVENLİ) ---
+CLIENT_ID = os.environ.get("CLIENT_ID", "1537176213678719037")
+CLIENT_SECRET = os.environ.get("_cepqD6WCRm5KI-s5ydlzcFv_vhZi5kn")
+REDIRECT_URI = os.environ.get("REDIRECT_URI", "https://welloworld.onrender.com/callback")
 
-BOT_TOKEN = "MTUzNzE3NjIxMzY3ODcxOTAzNw.GrCh8N.kpdLEQjJdz5gbYn1AgA3ck5WeTe2YqXX-10H1I"
-LOG_CHANNEL_ID = 1537178229570535585
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "MTUzNzE3NjIxMzY3ODcxOTAzNw.G4ZmqW.OC0-af1Hm67S0c7r6Q62mtmqMr0wixx3TT1bwY")
+LOG_CHANNEL_ID = int(os.environ.get("LOG_CHANNEL_ID", 1537178229570535585))
 
 app = Flask(__name__)
 
