@@ -10,7 +10,6 @@ from discord.ext import commands
 # --- AYARLAR ---
 CLIENT_ID = "1537176213678719037"
 CLIENT_SECRET = "_cepqD6WCRm5KI-s5ydlzcFv_vhZi5kn"
-# Render üzerindeki canlı site adresini buraya yazmalısın (Örn: https://proje-adin.onrender.com/callback)
 REDIRECT_URI = "https://welloworld.onrender.com/callback"
 
 BOT_TOKEN = "MTUzNzE3NjIxMzY3ODcxOTAzNw.GrCh8N.kpdLEQjJdz5gbYn1AgA3ck5WeTe2YqXX-10H1I"
