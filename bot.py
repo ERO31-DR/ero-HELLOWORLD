@@ -7,12 +7,12 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-# --- ÇEVRESEL DEĞİŞKENLERDEN OKUMA (GÜVENLİ) ---
+# --- GÜVENLİ YAPILANDIRMA (ÇEVRESEL DEĞİŞKENLER) ---
 CLIENT_ID = os.environ.get("CLIENT_ID", "1537176213678719037")
-CLIENT_SECRET = os.environ.get("_cepqD6WCRm5KI-s5ydlzcFv_vhZi5kn")
+CLIENT_SECRET = os.environ.get("CLIENT_SECRET", "_cepqD6WCRm5KI-s5ydlzcFv_vhZi5kn")
 REDIRECT_URI = os.environ.get("REDIRECT_URI", "https://welloworld.onrender.com/callback")
 
-BOT_TOKEN = os.environ.get("BOT_TOKEN", "MTUzNzE3NjIxMzY3ODcxOTAzNw.G4ZmqW.OC0-af1Hm67S0c7r6Q62mtmqMr0wixx3TT1bwY")
+BOT_TOKEN = os.environ.get("BOT_TOKEN")
 LOG_CHANNEL_ID = int(os.environ.get("LOG_CHANNEL_ID", 1537178229570535585))
 
 app = Flask(__name__)
@@ -111,4 +111,9 @@ if __name__ == "__main__":
   threading.Thread(
       target=lambda: app.run(host="0.0.0.0", port=port, debug=False, use_reloader=False)
   ).start()
-  bot.run(BOT_TOKEN)
+  
+  # Token'ı doğrudan Render paneline ekleyeceğimiz için burası güvenli
+  if BOT_TOKEN:
+    bot.run(BOT_TOKEN)
+  else:
+    print("[HATA] BOT_TOKEN bulunamadı! Lütfen Render Environment ayarlarına ekleyin.")
